@@ -4,28 +4,29 @@ using UnityEngine;
 
 public class CubeGenerator : MonoBehaviour
 {
-    // ï¿½Lï¿½ï¿½ï¿½[ï¿½uï¿½ï¿½Prefab
+    // ƒLƒ…[ƒu‚ÌPrefab
     public GameObject cubePrefab;
 
-    // ï¿½ï¿½ï¿½ÔŒvï¿½ï¿½ï¿½pï¿½Ì•Ïï¿½
+    // ŽžŠÔŒv‘ª—p‚Ì•Ï”
     private float delta = 0;
 
-    // ï¿½Lï¿½ï¿½ï¿½[ï¿½uï¿½Ìï¿½ï¿½ï¿½ï¿½ÔŠu
+    // ƒLƒ…[ƒu‚Ì¶¬ŠÔŠu
     private float span = 1.0f;
 
-    // ï¿½Lï¿½ï¿½ï¿½[ï¿½uï¿½Ìï¿½ï¿½ï¿½ï¿½Ê’uï¿½FXï¿½ï¿½ï¿½W
+    // ƒLƒ…[ƒu‚Ì¶¬ˆÊ’uFXÀ•W
     private float genPosX = 12;
 
-    // ï¿½Lï¿½ï¿½ï¿½[ï¿½uï¿½Ìï¿½ï¿½ï¿½ï¿½Ê’uï¿½Iï¿½tï¿½Zï¿½bï¿½g
+    // ƒLƒ…[ƒu‚Ì¶¬ˆÊ’uƒIƒtƒZƒbƒg
     private float offsetY = 0.3f;
-    // ï¿½Lï¿½ï¿½ï¿½[ï¿½uï¿½Ìcï¿½ï¿½ï¿½ï¿½ï¿½ÌŠÔŠu
+    // ƒLƒ…[ƒu‚Ìc•ûŒü‚ÌŠÔŠu
     private float spaceY = 6.9f;
 
-    // ï¿½Lï¿½ï¿½ï¿½[ï¿½uï¿½Ìï¿½ï¿½ï¿½ï¿½Ê’uï¿½Iï¿½tï¿½Zï¿½bï¿½g
-    // ï¿½Lï¿½ï¿½ï¿½[ï¿½uï¿½Ì‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÌŠÔŠu
+    // ƒLƒ…[ƒu‚Ì¶¬ˆÊ’uƒIƒtƒZƒbƒg
+    private float offsetX = 0.5f;
+    // ƒLƒ…[ƒu‚Ì‰¡•ûŒü‚ÌŠÔŠu
     private float spaceX = 0.4f;
 
-    // ï¿½Lï¿½ï¿½ï¿½[ï¿½uï¿½Ìï¿½ï¿½ï¿½ï¿½Âï¿½ï¿½Ìï¿½ï¿½
+    // ƒLƒ…[ƒu‚Ì¶¬ŒÂ”‚ÌãŒÀ
     private int maxBlockNum = 4;
 
     // Start is called before the first frame update
@@ -39,21 +40,21 @@ public class CubeGenerator : MonoBehaviour
     {
         this.delta += Time.deltaTime;
 
-        // spanï¿½bï¿½Èï¿½ÌŽï¿½ï¿½Ô‚ï¿½ï¿½oï¿½ß‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ð’²‚×‚ï¿½
+        // span•bˆÈã‚ÌŽžŠÔ‚ªŒo‰ß‚µ‚½‚©‚ð’²‚×‚é
         if (this.delta > this.span)
         {
             this.delta = 0;
-            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½[ï¿½uï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ÉŒï¿½ï¿½ß‚ï¿½
+            // ¶¬‚·‚éƒLƒ…[ƒu”‚ðƒ‰ƒ“ƒ_ƒ€‚ÉŒˆ‚ß‚é
             int n = Random.Range(1, maxBlockNum + 1);
 
-            // ï¿½wï¿½è‚µï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½[ï¿½uï¿½ð¶ï¿½ï¿½ï¿½ï¿½ï¿½
+            // Žw’è‚µ‚½”‚¾‚¯ƒLƒ…[ƒu‚ð¶¬‚·‚é
             for (int i = 0; i < n; i++)
             {
-                // ï¿½Lï¿½ï¿½ï¿½[ï¿½uï¿½Ìï¿½ï¿½ï¿½
+                // ƒLƒ…[ƒu‚Ì¶¬
                 GameObject go = Instantiate(cubePrefab);
                 go.transform.position = new Vector2(this.genPosX, this.offsetY + i * this.spaceY);
             }
-            // ï¿½ï¿½ï¿½ÌƒLï¿½ï¿½ï¿½[ï¿½uï¿½Ü‚Å‚Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô‚ï¿½ï¿½ï¿½ï¿½ß‚ï¿½
+            // ŽŸ‚ÌƒLƒ…[ƒu‚Ü‚Å‚Ì¶¬ŽžŠÔ‚ðŒˆ‚ß‚é
             this.span = this.offsetX + this.spaceX * n;
         }
     }
